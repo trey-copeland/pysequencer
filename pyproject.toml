@@ -1,7 +1,31 @@
+[build-system]
+requires = ["setuptools>=65", "setuptools-scm[toml]>=7"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "pysequencer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Extensible state machine for hardware & API automation"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pydantic>=2.5",
+    "pydantic-yaml>=0.11",
+    "aiohttp>=3.9",
+    "tenacity>=8.2",
+    "dependency-injector>=4.41",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=4.1",
+]
+
+[tool.setuptools]
+packages = ["pysequencer"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
